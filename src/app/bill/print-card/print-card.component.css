@@ -1,0 +1,35 @@
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable,
+  #printable * {
+    visibility: visible;
+  }
+  #printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: 395px;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  /* background-color: #23406f; */
+  background-clip: border-box;
+  border: 1px solid #23406f;
+  border-radius: 20px;
+  min-height: 200px;
+  color: white;
+  background: url("./../../../assets/logo_new.png") round;
+}
+
+.light {
+  color: #ececec;
+  font-size: 11px;
+}

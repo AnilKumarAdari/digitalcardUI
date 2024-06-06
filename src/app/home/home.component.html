@@ -1,0 +1,86 @@
+<div class="offset-5 col-md-2 p-3">
+  <img src="./../../assets/logo_new.png" class="img-fluid rounded-5" />
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center g-2">
+    <div class="col-md-12">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder="Search Card"
+          [(ngModel)]="terms"
+        />
+      </div>
+
+      <button type="button" class="btn btn-outline-primary" (click)="addCard()">
+        Generate Card
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">CardId</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class=""
+              *ngFor="let item of pageCardsData | searchCard : terms"
+            >
+              <td>{{ item.cardId.split("_")[1] | cardNumber }}</td>
+              <td>{{ item.customerName }}</td>
+              <td>{{ item.cardId.split("_")[0] | date }}</td>
+
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  (click)="editCard(item)"
+                >
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  (click)="viewCard(item)"
+                >
+                  View
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        *ngIf="pageCardsData.length === 0"
+        class="text-warning-emphasis text-center fs-5"
+      >
+        No Job orders found!
+      </div>
+
+      <ngb-pagination
+        [collectionSize]="cardsData.length"
+        [pageSize]="5"
+        [maxSize]="5"
+        [rotate]="true"
+        [(page)]="currentPage"
+        (pageChange)="pageChanged($event)"
+        [boundaryLinks]="true"
+        aria-label="Default pagination"
+        class="d-flex justify-content-end pagination-rounded-flat pagination-success"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

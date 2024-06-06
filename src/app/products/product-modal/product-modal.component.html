@@ -1,0 +1,155 @@
+<!-- product-modal.component.html -->
+<div class="modal-header">
+  <h4 class="modal-title">{{ modalTitle }}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            formControlName="name"
+            id="name"
+            class="form-control"
+            placeholder="Name"
+            required
+            [ngClass]="{
+              'is-invalid': f.name.touched && f.name.errors,
+              'is-valid': f.name.valid
+            }"
+          />
+          <div *ngIf="f.name.touched && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required!</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label for="email">Description:</label>
+          <input
+            type="text"
+            [ngClass]="{
+              'is-invalid': f.description.touched && f.description.errors,
+              'is-valid': f.description.valid
+            }"
+            formControlName="description"
+            id="email"
+            class="form-control"
+            placeholder="Description"
+            required
+          />
+          <div
+            *ngIf="f.description.touched && f.description.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.description.errors.required">
+              Description is required!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input
+            type="number"
+            [ngClass]="{
+              'is-invalid': f.price.touched && f.price.errors,
+              'is-valid': f.price.valid
+            }"
+            formControlName="price"
+            id="price"
+            class="form-control"
+            placeholder="Price"
+            required
+          />
+          <div
+            *ngIf="f.price.touched && f.price.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.price.errors.required">price is required!</div>
+            <div *ngIf="f.price.errors.pattern">Numeric Only Accepted!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input
+            type="number"
+            [ngClass]="{
+              'is-invalid': f.quantity.touched && f.quantity.errors,
+              'is-valid': f.quantity.valid
+            }"
+            formControlName="quantity"
+            id="quantity"
+            class="form-control"
+            placeholder="Quantity"
+            required
+          />
+          <div
+            *ngIf="f.quantity.touched && f.quantity.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.quantity.errors.required">Quantity is required!</div>
+            <div *ngIf="f.quantity.errors.pattern">Numeric Only Accepted!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        DOB 
+        <label for="dob">Date of Birth:</label>
+        <div class="input-group">
+          <input
+            type="text"
+            [ngClass]="{
+              'is-invalid': f.dob.touched && f.dob.errors,
+              'is-valid': f.dob.valid
+            }"
+            class="form-control"
+            formControlName="dob"
+            id="dob"
+            required
+            placeholder="Date of Birth"
+            #d="ngbDatepicker"
+            ngbDatepicker
+          />
+          <button
+            class="btn btn-outline-secondary bi bi-calendar3"
+            (click)="d.toggle()"
+            type="button"
+          ></button>
+          <div *ngIf="f.name.touched && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">DOB is required!</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"></div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"></div>
+    </div> -->
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"></div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <button
+            type="submit"
+            [disabled]="productForm.invalid"
+            class="btn btn-primary"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"></div>
+    </div>
+  </form>
+  <div class="card-footer"></div>
+</div>

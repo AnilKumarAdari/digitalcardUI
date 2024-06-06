@@ -1,0 +1,18 @@
+.form-label {
+  font-weight: 600;
+}
+
+input.ng-touched.ng-invalid,
+textarea.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+
+.radio-btn {
+  display: flex;
+}
+
+.radio-type {
+  height: 18px;
+  width: 20px;
+  margin: 3%;
+}

@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">
+    <img
+      src="assets/logo_new.png"
+      alt="Logo"
+      width="50"
+      height="50"
+      class="d-inline-block align-top mr-2"
+    />
+    DTS Technologies
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <form class="form-inline my-2 my-lg-0 mr-auto">
+      <!-- <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button> -->
+    </form>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            profile
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

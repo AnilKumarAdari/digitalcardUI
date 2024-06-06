@@ -1,0 +1,50 @@
+<div class="bs-gray-dark">
+  <div class="toolbar hidden-print">
+    <div class="text-center">
+      <button
+        id="printInvoice"
+        class="btn btn-outline-info"
+        style="margin-top: 2%"
+        printSectionId="printable"
+        [useExistingCss]="true"
+        ngxPrint
+      >
+        <i class="fa fa-print"></i> Print
+      </button>
+    </div>
+    <hr />
+  </div>
+  <div class="invoice overflow-auto" id="printable">
+    <div class="d-flex justify-content-center container text-white mt-5">
+      <div class="card p-2 px-3 py-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <img src="https://i.imgur.com/8ANWXql.png" width="20" height="20" />
+          <!-- <img src="https://i.imgur.com/SsTSozr.png" width="40" /> -->
+        </div>
+        <div class="mt-3">
+          <span class="mr-3">{{
+            cardDetails.cardId.split("_")[1] | cardNumber
+          }}</span>
+        </div>
+        <br />
+        <br />
+        <div class="d-flex justify-content-between card-details mt-3 mb-3">
+          <div class="d-flex flex-column">
+            <span class="light">Card Holder</span
+            ><span>{{ cardDetails.customerName }}</span>
+          </div>
+          <div class="d-flex flex-row">
+            <div class="d-flex flex-column mr-3">
+              <span class="light">Contact</span
+              ><span>{{ cardDetails.phoneNumber }}</span>
+            </div>
+            <div class="d-flex flex-column">
+              <span class="light">Address</span
+              ><span>{{ cardDetails.address }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
